@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 
 interface NumbersTypes {
   firstNumber: number
@@ -10,7 +10,6 @@ const Multiplication: React.FC = () => {
     firstNumber: 0,
     secondNumber: 0,
   })
-  const inputRef = useRef<HTMLInputElement>(null)
   const [startState, setStartState] = useState(false)
   const [answerNumber, setAnswerNumber] = useState('')
   const getRandomNumber = (count: number) => {
@@ -19,7 +18,6 @@ const Multiplication: React.FC = () => {
   const setRandomNumbers = () => {
     const randomFirstNumber: number = getRandomNumber(99)
     const randomSecondNumber: number = getRandomNumber(9)
-    console.log('ops')
     setNumbers({
       firstNumber: randomFirstNumber,
       secondNumber: randomSecondNumber,
@@ -32,7 +30,6 @@ const Multiplication: React.FC = () => {
   }
   const answerNumberHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredNumber = event.target.value
-    if (inputRef.current !== null) inputRef.current.focus()
     return setAnswerNumber(enteredNumber)
   }
   const getMultiplication = ({
@@ -74,10 +71,14 @@ const Multiplication: React.FC = () => {
     if (startState) {
       return (
         <>
-          <div>{numbers.firstNumber}</div> *
-          <div>{numbers.secondNumber}</div>
-          <input autoFocus={true} type="text" ref={inputRef} value={answerNumber} onChange={answerNumberHandler} />
-          <button type="button" onClick={() => checkAnswer()}>
+          <div>{numbers.firstNumber}</div> * <div>{numbers.secondNumber}</div>
+          <input
+            autoFocus={true}
+            type="text"
+            value={answerNumber}
+            onChange={answerNumberHandler}
+          />
+          <button type="submit" onClick={() => checkAnswer()}>
             check answer
           </button>
         </>
