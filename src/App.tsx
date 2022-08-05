@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { About } from './pages/About'
 import { Home } from './pages/Home'
+import { MultiplicationGame } from './pages/MultiplicationGame'
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/about" component={About} />
+          <Route path="/multiplicationGame" component={MultiplicationGame} />
         </Switch>
       </div>
     </BrowserRouter>

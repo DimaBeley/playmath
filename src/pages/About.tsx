@@ -35,8 +35,8 @@ export const About: React.FC = () => {
       <div ref={TextRef}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          possimus doloribus error cumque autem asperiores, ullam deserunt quidem
-          omnis doloremque itaque eius eaque sint facilis unde tenetur reiciendis
+          possimus doloribus error cumque autem asperiores, ullam deserunt quid
+          omnis doloremque itaque eius eaque sint facilis unde tenet cisgendered
           aliquam soluta?
         </p>
       </div>
