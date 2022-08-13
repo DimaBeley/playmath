@@ -12,12 +12,13 @@ const Multiplication: React.FC = () => {
   })
   const [startState, setStartState] = useState(false)
   const [answerNumber, setAnswerNumber] = useState('')
-  const getRandomNumber = (count: number) => {
-    return Math.floor(Math.random() * count) + 1
+
+  const getRandomRangeNumber = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min) + min)
   }
   const setRandomNumbers = () => {
-    const randomFirstNumber: number = getRandomNumber(99)
-    const randomSecondNumber: number = getRandomNumber(9)
+    const randomFirstNumber: number = getRandomRangeNumber(10, 99)
+    const randomSecondNumber: number = getRandomRangeNumber(1, 9)
     setNumbers({
       firstNumber: randomFirstNumber,
       secondNumber: randomSecondNumber,
