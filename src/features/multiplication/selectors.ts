@@ -8,3 +8,5 @@ export const getGameStart = (state: MultiplicationGameState) =>
   state.MultiplicationState.startGame
 export const getRandomNumbers = (state: MultiplicationGameState) =>
   state.MultiplicationState.randomNumbers
+export const getCheckAnswer = (state: MultiplicationGameState) =>
+  state.MultiplicationState.checkAnswer

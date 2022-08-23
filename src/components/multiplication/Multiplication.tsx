@@ -1,58 +1,52 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { actionTypes, selectors } from '../../features/multiplication'
-
-interface NumbersTypes {
-  firstNumber: number
-  secondNumber: number
-}
+import { getRandomRangeNumber } from '../../features/multiplication/utils'
 
 const Multiplication: React.FC = () => {
   const gameStart = useSelector(selectors.getGameStart)
   const answer = useSelector(selectors.getAnswer)
+  const randomNumbers = useSelector(selectors.getRandomNumbers)
+  const getCheckAnswer = useSelector(selectors.getCheckAnswer)
   const dispatch = useDispatch()
-  const [numbers, setNumbers] = useState<NumbersTypes>({
-    firstNumber: 0,
-    secondNumber: 0,
-  })
   // const GameMode = useSelector(selectors.getGameMode)
-  // const [answerNumber, setAnswerNumber] = useState('')
-
-  const getRandomRangeNumber = (min: number, max: number): number => {
-    return Math.floor(Math.random() * (max - min) + min)
-  }
-  const setRandomNumbers = () => {
-    const randomFirstNumber: number = getRandomRangeNumber(10, 99)
-    const randomSecondNumber: number = getRandomRangeNumber(1, 9)
-    setNumbers({
-      firstNumber: randomFirstNumber,
-      secondNumber: randomSecondNumber,
-    })
-    return
-  }
+  // TODO next round
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: 0 })
-    return setRandomNumbers()
+    const newRandomNumbers = {
+      firstNumber: getRandomRangeNumber(1, 9),
+      secondNumber: getRandomRangeNumber(10, 99),
+    }
+    return dispatch({
+      type: actionTypes.SET_RANDOM_NUMBERS,
+      payload: newRandomNumbers,
+    })
+  }
+  const startButtonHandler = () => {
+    dispatch({ type: actionTypes.SET_START })
+    dispatch({
+      type: actionTypes.SET_RANDOM_NUMBERS,
+      payload: {
+        firstNumber: getRandomRangeNumber(1, 9),
+        secondNumber: getRandomRangeNumber(10, 99),
+      },
+    })
   }
   // const answerNumberHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   const enteredNumber = event.target.value
   // return setAnswerNumber(enteredNumber)
   // }
-  const getMultiplication = ({
-    firstNumber,
-    secondNumber,
-  }: NumbersTypes): number => {
-    return firstNumber * secondNumber
-  }
+  // TODO check answer in reducer
+  // const getMultiplication = ({
+  //   firstNumber,
+  //   secondNumber,
+  // }: NumbersTypes): number => {
+  //   return firstNumber * secondNumber
+  // }
   // TODO check answer in reducer
   const checkAnswer = () => {
-    if (
-      Number(answer) ===
-      getMultiplication({
-        firstNumber: numbers.firstNumber,
-        secondNumber: numbers.secondNumber,
-      })
-    ) {
+    dispatch({ type: actionTypes.CHECK_ANSWER })
+    if (getCheckAnswer) {
       alert('well done')
       return next()
     } else {
@@ -62,7 +56,7 @@ const Multiplication: React.FC = () => {
   const StartButton = (): JSX.Element => {
     if (!gameStart) {
       return (
-        <button type="button" onClick={() => dispatch({type: actionTypes.SET_START})}>
+        <button type="button" onClick={() => startButtonHandler()}>
           Start
         </button>
       )
@@ -74,7 +68,7 @@ const Multiplication: React.FC = () => {
     if (gameStart) {
       return (
         <>
-          <div>{numbers.firstNumber}</div> * <div>{numbers.secondNumber}</div>
+          <div>{randomNumbers.firstNumber}</div> * <div>{randomNumbers.secondNumber}</div>
           <input
             autoFocus={true}
             type="text"

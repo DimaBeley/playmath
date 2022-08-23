@@ -2,6 +2,10 @@ import * as actionTypes from './actionTypes'
 
 interface SetRandomNumbersAction {
   type: typeof actionTypes.SET_RANDOM_NUMBERS
+  payload: {
+    firstNumber: number
+    secondNumber: number
+  }
 }
 interface UpdateAnswerAction {
   type: typeof actionTypes.UPDATE_ANSWER
