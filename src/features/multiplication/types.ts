@@ -9,10 +9,7 @@ interface SetRandomNumbersAction {
 }
 interface UpdateAnswerAction {
   type: typeof actionTypes.UPDATE_ANSWER
-  payload: number
-}
-interface CheckAnswerAction {
-  type: typeof actionTypes.CHECK_ANSWER
+  payload: number | string
 }
 interface SetStartAction {
   type: typeof actionTypes.SET_START
@@ -24,7 +21,6 @@ interface SetGameMode {
 export type MultiplicationActionTypes =
   | SetRandomNumbersAction
   | UpdateAnswerAction
-  | CheckAnswerAction
   | SetStartAction
   | SetGameMode
 
@@ -40,6 +36,5 @@ export interface MultiplicationGameState {
     }
     answer: number
     startGame: boolean
-    checkAnswer: boolean
   }
 }

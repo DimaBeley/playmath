@@ -1,4 +1,5 @@
 import { MultiplicationGameState } from './types'
+import { getMultiplication } from './utils'
 
 export const getGameMode = (state: MultiplicationGameState) =>
   state.MultiplicationState.gameMode
@@ -8,5 +9,8 @@ export const getGameStart = (state: MultiplicationGameState) =>
   state.MultiplicationState.startGame
 export const getRandomNumbers = (state: MultiplicationGameState) =>
   state.MultiplicationState.randomNumbers
-export const getCheckAnswer = (state: MultiplicationGameState) =>
-  state.MultiplicationState.checkAnswer
+export const getCheckAnswer = (state: MultiplicationGameState) => {
+  const { firstNumber, secondNumber } = state.MultiplicationState.randomNumbers
+  const { answer } = state.MultiplicationState
+  return answer === getMultiplication(firstNumber, secondNumber)
+}

@@ -1,5 +1,4 @@
 export const SET_RANDOM_NUMBERS = 'SET_RANDOM_NUMBERS'
 export const UPDATE_ANSWER = 'UPDATE_ANSWER'
-export const CHECK_ANSWER = 'DECREMENT_COUNTER'
 export const SET_START = 'SET_START'
 export const SET_GAME_MODE = 'SET_GAME_MODE'

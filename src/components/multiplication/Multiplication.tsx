@@ -12,7 +12,7 @@ const Multiplication: React.FC = () => {
   // const GameMode = useSelector(selectors.getGameMode)
   // TODO next round
   const next = () => {
-    dispatch({ type: actionTypes.UPDATE_ANSWER, payload: 0 })
+    dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
       firstNumber: getRandomRangeNumber(1, 9),
       secondNumber: getRandomRangeNumber(10, 99),
@@ -32,20 +32,13 @@ const Multiplication: React.FC = () => {
       },
     })
   }
-  // const answerNumberHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const enteredNumber = event.target.value
-  // return setAnswerNumber(enteredNumber)
-  // }
-  // TODO check answer in reducer
-  // const getMultiplication = ({
-  //   firstNumber,
-  //   secondNumber,
-  // }: NumbersTypes): number => {
-  //   return firstNumber * secondNumber
-  // }
-  // TODO check answer in reducer
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: actionTypes.UPDATE_ANSWER,
+      payload: event.target.value.replace(/\D/g, ''),
+    })
+  }
   const checkAnswer = () => {
-    dispatch({ type: actionTypes.CHECK_ANSWER })
     if (getCheckAnswer) {
       alert('well done')
       return next()
@@ -73,12 +66,7 @@ const Multiplication: React.FC = () => {
             autoFocus={true}
             type="text"
             value={answer}
-            onChange={(e) =>
-              dispatch({
-                type: actionTypes.UPDATE_ANSWER,
-                payload: e.target.value,
-              })
-            }
+            onChange={handleChange}
           />
           <button type="submit" onClick={() => checkAnswer()}>
             check answer

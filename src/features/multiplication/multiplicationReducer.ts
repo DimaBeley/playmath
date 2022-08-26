@@ -11,7 +11,7 @@ const initialState = {
     firstNumber: 0,
     secondNumber: 0,
   },
-  answer: 0,
+  answer: '',
   startGame: false,
   checkAnswer: false,
 }
@@ -28,13 +28,8 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
       }
     case actionTypes.SET_START:
       return { ...state, startGame: !state.startGame }
-    case actionTypes.CHECK_ANSWER:
-      const checkAnswer =
-        Number(state.answer) ===
-        state.randomNumbers.firstNumber * state.randomNumbers.secondNumber
-      return { ...state, checkAnswer }
     case actionTypes.UPDATE_ANSWER:
-      return { ...state, answer: action.payload }
+      return { ...state, answer: Number(action.payload) }
     default:
       return state
   }

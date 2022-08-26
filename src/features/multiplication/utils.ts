@@ -4,6 +4,4 @@ export const getRandomRangeNumber = (min: number, max: number): number => {
 export const getMultiplication = (
   firstNumber: number,
   secondNumber: number
-): number => {
-  return firstNumber * secondNumber
-}
+): number => firstNumber * secondNumber
