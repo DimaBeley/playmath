@@ -29,7 +29,7 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
     case actionTypes.SET_START:
       return { ...state, startGame: !state.startGame }
     case actionTypes.UPDATE_ANSWER:
-      return { ...state, answer: Number(action.payload) }
+      return { ...state, answer: action.payload }
     default:
       return state
   }

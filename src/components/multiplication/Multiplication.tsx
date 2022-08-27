@@ -31,12 +31,20 @@ const Multiplication: React.FC = () => {
         secondNumber: getRandomRangeNumber(10, 99),
       },
     })
-  }
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({
       type: actionTypes.UPDATE_ANSWER,
-      payload: event.target.value.replace(/\D/g, ''),
+      payload: '',
     })
+  }
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.replace(/\D/g, '')
+    console.log(value, 'value after replace')
+    if (value || value === '') {
+      dispatch({
+        type: actionTypes.UPDATE_ANSWER,
+        payload: value,
+      })
+    }
   }
   const checkAnswer = () => {
     if (getCheckAnswer) {
@@ -57,11 +65,15 @@ const Multiplication: React.FC = () => {
       return <div></div>
     }
   }
+  const exitButtonHandler = () => {
+    dispatch({ type: actionTypes.SET_START })
+  }
   const Game = (): JSX.Element => {
     if (gameStart) {
       return (
         <>
-          <div>{randomNumbers.firstNumber}</div> * <div>{randomNumbers.secondNumber}</div>
+          <div>{randomNumbers.firstNumber}</div> *{' '}
+          <div>{randomNumbers.secondNumber}</div>
           <input
             autoFocus={true}
             type="text"
@@ -70,6 +82,13 @@ const Multiplication: React.FC = () => {
           />
           <button type="submit" onClick={() => checkAnswer()}>
             check answer
+          </button>
+          <button
+            type="button"
+            className={'right'}
+            onClick={() => exitButtonHandler()}
+          >
+            <span>exit to menu</span>
           </button>
         </>
       )

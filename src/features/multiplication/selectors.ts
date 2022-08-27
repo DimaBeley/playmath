@@ -12,5 +12,5 @@ export const getRandomNumbers = (state: MultiplicationGameState) =>
 export const getCheckAnswer = (state: MultiplicationGameState) => {
   const { firstNumber, secondNumber } = state.MultiplicationState.randomNumbers
   const { answer } = state.MultiplicationState
-  return answer === getMultiplication(firstNumber, secondNumber)
+  return Number(answer) === getMultiplication(firstNumber, secondNumber)
 }
