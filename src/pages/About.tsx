@@ -26,7 +26,7 @@ export const About: React.FC = () => {
       duration: 1,
       delay: 0.6,
     })
-  })
+  }, [])
   return (
     <Fragment>
       <div ref={AboutRef}>

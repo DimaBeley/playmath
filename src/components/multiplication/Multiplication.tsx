@@ -81,7 +81,7 @@ const Multiplication: React.FC = () => {
             onChange={handleChange}
           />
           <button type="submit" onClick={() => checkAnswer()}>
-            check answer
+            <span>check answer</span>
           </button>
           <button
             type="button"
