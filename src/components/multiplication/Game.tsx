@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionTypes, selectors } from '../../features/multiplication'
 import { getRandomRangeNumber } from './utils'
+import styles from './multiplication.module.css'
 
 const Game = (): JSX.Element => {
   const gameStart = useSelector(selectors.getGameStart)
   const answer = useSelector(selectors.getAnswer)
   const randomNumbers = useSelector(selectors.getRandomNumbers)
   const getCheckAnswer = useSelector(selectors.getCheckAnswer)
+  const inputRef = useRef<HTMLInputElement>(null)
   const dispatch = useDispatch()
   // const GameMode = useSelector(selectors.getGameMode)
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus()
+  })
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
-      firstNumber: getRandomRangeNumber(1, 9),
-      secondNumber: getRandomRangeNumber(10, 99),
+      firstNumber: getRandomRangeNumber(2, 9),
+      secondNumber: getRandomRangeNumber(2, 9),
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
@@ -48,10 +53,12 @@ const Game = (): JSX.Element => {
         <div>{randomNumbers.firstNumber}</div> *{' '}
         <div>{randomNumbers.secondNumber}</div>
         <input
+          ref={inputRef}
           autoFocus={true}
           type="text"
           value={answer}
           onChange={onChangeHandler}
+          className={styles.multiplicationInput}
         />
         <button type="submit" onClick={() => checkAnswerHandler()}>
           <span>check answer</span>

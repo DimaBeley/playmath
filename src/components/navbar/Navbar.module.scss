@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    border: 2px solid lightcoral;
+    background-color: orange;
+    & * {
+        color: white;
+        font-size: 26px;
+    }
+    & a {
+        text-decoration: none;
+        & :hover {
+            color: orangered;
+        }
+    }
+    & span {
+        padding: 0 5px;
+    }
+    & .logo {
+        flex: 1;
+    }
+    & .settings {
+
+    }
+}
+

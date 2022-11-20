@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 80px;
+  border: 2px solid orangered;
+  background-color: lightcoral;
+  & * {
+    color: white;
+    font-size: 26px;
+  }
+  & a {
+    text-decoration: none;
+  }
+  & .navigation {
+    & .navList {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      & :hover {
+        color: aqua;
+      }
+    }
+  }
+}

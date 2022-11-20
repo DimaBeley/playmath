@@ -1,5 +1,4 @@
 import React from 'react'
+import Home from '../components/home'
 
-export const Home: React.FC = () => {
-  return <div>Home</div>
-}
+export const HomePage: React.FC = () => <Home />

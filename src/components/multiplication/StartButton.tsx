@@ -10,8 +10,8 @@ const StartButton: React.FC = () => {
     dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
       payload: {
-        firstNumber: getRandomRangeNumber(1, 9),
-        secondNumber: getRandomRangeNumber(10, 99),
+        firstNumber: getRandomRangeNumber(2, 9),
+        secondNumber: getRandomRangeNumber(2, 9),
       },
     })
     dispatch({
