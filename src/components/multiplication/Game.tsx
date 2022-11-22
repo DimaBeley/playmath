@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { actionTypes, selectors } from '../../features/multiplication'
-import { getRandomRangeNumber } from './utils'
-import styles from './multiplication.module.css'
+import { getRandomRangeNumber, exitCheck } from './utils'
+import styles from './multiplication.module.scss'
 
 const Game = (): JSX.Element => {
-  const gameStart = useSelector(selectors.getGameStart)
+  // const gameStart = useSelector(selectors.getGameStart)
+  const navigate = useNavigate()
   const answer = useSelector(selectors.getAnswer)
   const randomNumbers = useSelector(selectors.getRandomNumbers)
   const getCheckAnswer = useSelector(selectors.getCheckAnswer)
@@ -14,7 +16,12 @@ const Game = (): JSX.Element => {
   // const GameMode = useSelector(selectors.getGameMode)
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus()
-  })
+    // return () => {
+    //   if (exitCheck()) {
+    //     dispatch({ type: actionTypes.SET_START })
+    //   }
+    // }
+  }, [])
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
@@ -45,36 +52,35 @@ const Game = (): JSX.Element => {
     }
   }
   const exitButtonHandler = () => {
-    dispatch({ type: actionTypes.SET_START })
+    if (exitCheck()) {
+      dispatch({ type: actionTypes.SET_START })
+      return navigate('/')
+    }
   }
-  if (gameStart) {
-    return (
-      <>
-        <div>{randomNumbers.firstNumber}</div> *{' '}
-        <div>{randomNumbers.secondNumber}</div>
-        <input
-          ref={inputRef}
-          autoFocus={true}
-          type="text"
-          value={answer}
-          onChange={onChangeHandler}
-          className={styles.multiplicationInput}
-        />
-        <button type="submit" onClick={() => checkAnswerHandler()}>
-          <span>check answer</span>
-        </button>
-        <button
-          type="button"
-          className={'right'}
-          onClick={() => exitButtonHandler()}
-        >
-          <span>exit to menu</span>
-        </button>
-      </>
-    )
-  } else {
-    return <div></div>
-  }
+  return (
+    <>
+      <div>{randomNumbers.firstNumber}</div> *{' '}
+      <div>{randomNumbers.secondNumber}</div>
+      <input
+        ref={inputRef}
+        autoFocus={true}
+        type="text"
+        value={answer}
+        onChange={onChangeHandler}
+        className={styles.multiplicationInput}
+      />
+      <button type="submit" onClick={() => checkAnswerHandler()}>
+        <span>check answer</span>
+      </button>
+      <button
+        type="button"
+        className={'right'}
+        onClick={() => exitButtonHandler()}
+      >
+        <span>exit to menu</span>
+      </button>
+    </>
+  )
 }
 
 export default Game

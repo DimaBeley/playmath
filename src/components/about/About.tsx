@@ -1,9 +1,9 @@
 import React, { Fragment, useRef, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 
 export const About: React.FC = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const AboutRef = useRef<HTMLDivElement>(null)
   const TextRef = useRef<HTMLDivElement>(null)
   const ButtonRef = useRef<HTMLButtonElement>(null)
@@ -45,7 +45,7 @@ export const About: React.FC = () => {
         type="button"
         className="btn"
         cy-data="go-back-button"
-        onClick={() => history.push('/')}
+        onClick={() => navigate(-1)}
       >
         Go back
       </button>

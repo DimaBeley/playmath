@@ -13,7 +13,7 @@ export const Home: React.FC = () => (
           <NavLink to="/about">About</NavLink>
         </li>
         <li>
-          <NavLink to="/multiplicationGame">Game!</NavLink>
+          <NavLink to="/gameConfiguration">Game!</NavLink>
         </li>
       </ul>
     </nav>
