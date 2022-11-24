@@ -1,6 +1,38 @@
-.multiplicationInput {
-    width: 400px;
-    height: 50px;
-    border: 2px solid orangered;
-    border-radius: 11px;
+.container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    & .numbers {
+        display: inline-flex;
+        margin: 50px 0;
+        & .operator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 40px;
+            color: red;
+            font-size: 35px;
+        }
+        & .number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(40px, 70px, 100px);
+            height: clamp(30px, 45px, 65px);
+            border: 1px solid black;
+            font-size: clamp(20px, 30px, 45px);
+        }
+    }
+    & .multiplicationInput {
+        width: 400px;
+        height: 50px;
+        border: 2px solid orangered;
+        border-radius: 11px;
+    }
 }
+
+

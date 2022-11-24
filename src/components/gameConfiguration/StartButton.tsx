@@ -1,5 +1,5 @@
 import React from 'react'
-import { actionTypes } from '../../features/multiplication'
+import { actionTypes } from '../../redux/multiplication'
 import { getRandomRangeNumber } from '../multiplication/utils'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -15,10 +15,6 @@ const StartButton: React.FC = () => {
         firstNumber: getRandomRangeNumber(2, 9),
         secondNumber: getRandomRangeNumber(2, 9),
       },
-    })
-    dispatch({
-      type: actionTypes.UPDATE_ANSWER,
-      payload: '',
     })
     return navigate('/multiplicationGame')
   }

@@ -3,9 +3,10 @@ import * as actionTypes from './actionTypes'
 import { MultiplicationActionTypes } from './types'
 
 const initialState = {
-  gameMode: {
+  gameConfiguration: {
     firstNumberRange: 0,
     secondNumberRange: 0,
+    gameType: '',
   },
   randomNumbers: {
     firstNumber: 0,

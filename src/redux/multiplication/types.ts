@@ -14,21 +14,22 @@ interface UpdateAnswerAction {
 interface SetStartAction {
   type: typeof actionTypes.SET_START
 }
-interface SetGameMode {
-  type: typeof actionTypes.SET_GAME_MODE
+interface SetGameConfiguration {
+  type: typeof actionTypes.SET_GAME_CONFIGURATION
   payload: boolean
 }
 export type MultiplicationActionTypes =
   | SetRandomNumbersAction
   | UpdateAnswerAction
   | SetStartAction
-  | SetGameMode
+  | SetGameConfiguration
 
 export interface MultiplicationGameState {
   MultiplicationState: {
-    gameMode: {
+    gameConfiguration: {
       firstNumberRange: number
       secondNumberRange: number
+      gameType: string
     }
     randomNumbers: {
       firstNumber: number

@@ -7,9 +7,6 @@ export const Home: React.FC = () => (
     <nav className={styles.navigation}>
       <ul className={styles.navList}>
         <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
           <NavLink to="/about">About</NavLink>
         </li>
         <li>

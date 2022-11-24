@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux'
 import { devToolsEnhancer } from 'redux-devtools-extension'
-import { MultiplicationReducer } from './features/multiplication'
+import { MultiplicationReducer } from './redux/multiplication'
 
-/* Create root reducer, containing all features of the application */
+/* Create root reducer, containing all redux of the application */
 const rootReducer = combineReducers({
   MultiplicationState: MultiplicationReducer,
 })

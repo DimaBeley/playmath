@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { actionTypes, selectors } from '../../features/multiplication'
+import { actionTypes, selectors } from '../../redux/multiplication'
 import { getRandomRangeNumber, exitCheck } from './utils'
 import styles from './multiplication.module.scss'
 
@@ -15,12 +15,13 @@ const Game = (): JSX.Element => {
   const dispatch = useDispatch()
   // const GameMode = useSelector(selectors.getGameMode)
   useEffect(() => {
-    if (inputRef.current) inputRef.current.focus()
-    // return () => {
-    //   if (exitCheck()) {
-    //     dispatch({ type: actionTypes.SET_START })
-    //   }
-    // }
+    inputRef.current?.focus()
+    return () => {
+      dispatch({
+        type: actionTypes.UPDATE_ANSWER,
+        payload: '',
+      })
+    }
   }, [])
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
@@ -57,10 +58,16 @@ const Game = (): JSX.Element => {
       return navigate('/')
     }
   }
+  const handleEnterSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') checkAnswerHandler()
+  }
   return (
-    <>
-      <div>{randomNumbers.firstNumber}</div> *{' '}
-      <div>{randomNumbers.secondNumber}</div>
+    <div className={styles.container}>
+      <div className={styles.numbers}>
+        <div className={styles.number}>{randomNumbers.firstNumber}</div>
+        <span className={styles.operator}>X</span>
+        <div className={styles.number}>{randomNumbers.secondNumber}</div>
+      </div>
       <input
         ref={inputRef}
         autoFocus={true}
@@ -68,6 +75,7 @@ const Game = (): JSX.Element => {
         value={answer}
         onChange={onChangeHandler}
         className={styles.multiplicationInput}
+        onKeyDown={handleEnterSubmit}
       />
       <button type="submit" onClick={() => checkAnswerHandler()}>
         <span>check answer</span>
@@ -79,7 +87,7 @@ const Game = (): JSX.Element => {
       >
         <span>exit to menu</span>
       </button>
-    </>
+    </div>
   )
 }
 
