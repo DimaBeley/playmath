@@ -27,11 +27,20 @@
             font-size: clamp(20px, 30px, 45px);
         }
     }
-    & .multiplicationInput {
-        width: 400px;
+    & input.multiplicationInput {
+        width: clamp(165px, 200px, 300px);
         height: 50px;
-        border: 2px solid orangered;
+        border: none;
+        border-bottom: 2px dashed orangered;
         border-radius: 11px;
+        font-size: 28px;
+        text-align: center;
+        transition: border-color .4s;
+        margin-bottom: 40px;
+        &:focus-visible, :focus, :active {
+            outline: none;
+            border-bottom: 2px dashed black;
+        }
     }
 }
 

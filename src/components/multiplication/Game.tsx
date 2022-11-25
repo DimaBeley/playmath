@@ -76,6 +76,7 @@ const Game = (): JSX.Element => {
         onChange={onChangeHandler}
         className={styles.multiplicationInput}
         onKeyDown={handleEnterSubmit}
+        maxLength={9}
       />
       <button type="submit" onClick={() => checkAnswerHandler()}>
         <span>check answer</span>
