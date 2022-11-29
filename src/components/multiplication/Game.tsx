@@ -27,7 +27,7 @@ const Game = (): JSX.Element => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
       firstNumber: getRandomRangeNumber(2, 9),
-      secondNumber: getRandomRangeNumber(2, 9),
+      secondNumber: getRandomRangeNumber(10, 99),
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
