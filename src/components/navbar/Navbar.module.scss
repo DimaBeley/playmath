@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 30px;
-    border: 2px solid lightcoral;
+    height: 0;
+    outline: 2px solid lightcoral;
     background-color: orange;
     & * {
         color: white;
@@ -11,15 +11,19 @@
     }
     & a {
         text-decoration: none;
+
         & :hover {
             color: orangered;
         }
     }
     & span {
-        padding: 0 5px;
+        position: relative;
+        top: 20px;
+        padding: 50px;
     }
     & .logo {
         flex: 1;
+        transition: color 0.5s;
     }
     & .settings {
 

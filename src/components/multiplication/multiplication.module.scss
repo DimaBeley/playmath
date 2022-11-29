@@ -3,12 +3,14 @@
     width: 100%;
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: column;
+    background: rgb(34,195,107);
+    background: var(--theme);
     & .numbers {
         display: inline-flex;
-        margin: 50px 0;
+        margin: 100px 0;
         & .operator {
             display: flex;
             justify-content: center;
@@ -16,24 +18,33 @@
             margin: 0 40px;
             color: red;
             font-size: 35px;
+            font-weight: bold;
         }
         & .number {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: clamp(40px, 70px, 100px);
-            height: clamp(30px, 45px, 65px);
-            border: 1px solid black;
-            font-size: clamp(20px, 30px, 45px);
+            width: clamp(40px, 80px, 100px);
+            height: clamp(30px, 55px, 65px);
+            border: 1px solid rgba(0, 0, 0, .1);
+            border-radius: 4px;
+            font-size: clamp(20px, 40px, 50px);
+            background-color: rgba(0, 0, 0, .1);
+            font-weight: bold;
+            color: white
         }
     }
     & input.multiplicationInput {
+        background-color: rgba(0, 0, 0, .1);
         width: clamp(165px, 200px, 300px);
+        color: ghostwhite;
         height: 50px;
         border: none;
         border-bottom: 2px dashed orangered;
         border-radius: 11px;
-        font-size: 28px;
+        font-size: 35px;
+        font-weight: 700;
+        letter-spacing: 1px;
         text-align: center;
         transition: border-color .4s;
         margin-bottom: 40px;

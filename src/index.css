@@ -1,3 +1,6 @@
+:root {
+  --theme: radial-gradient(circle, rgba(34,195,107,1) 87%, rgba(253,209,45,1) 100%);
+}
 body {
   margin: 0;
   height: 100%;
@@ -7,8 +10,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html {
+  height: 100%;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#root {
+  height: 100%;
 }
