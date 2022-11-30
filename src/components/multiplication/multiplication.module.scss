@@ -6,37 +6,37 @@
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    background: rgb(34,195,107);
-    background: var(--theme);
+    background-image: url("../../../public/images/mainBg.png");
+    background-size: 80%;
     & .numbers {
         display: inline-flex;
-        margin: 100px 0;
+        margin: 150px 0 75px 0;
         & .operator {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 0 40px;
-            color: red;
-            font-size: 35px;
+            color: white;
+            font-size: 25px;
             font-weight: bold;
+            background-color: rgba(0, 0, 0, .8);
         }
         & .number {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: clamp(40px, 80px, 100px);
-            height: clamp(30px, 55px, 65px);
-            border: 1px solid rgba(0, 0, 0, .1);
+            width: clamp(100px, 140px, 200px);
+            height: clamp(50px, 65px, 75px);
+            border: 1px solid rgba(0, 0, 0, .8);
             border-radius: 4px;
             font-size: clamp(20px, 40px, 50px);
-            background-color: rgba(0, 0, 0, .1);
+            background-color: rgba(0, 0, 0, .8);
             font-weight: bold;
             color: white
         }
     }
     & input.multiplicationInput {
-        background-color: rgba(0, 0, 0, .1);
-        width: clamp(165px, 200px, 300px);
+        background-color: rgba(0, 0, 0, .7);
+        width: clamp(250px, 300px, 400px);
         color: ghostwhite;
         height: 50px;
         border: none;
