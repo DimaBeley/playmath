@@ -1,6 +1,6 @@
 import React from 'react'
 import { actionTypes } from '../../redux/multiplication'
-import { getRandomRangeNumber } from '../multiplication/utils'
+import { getRandomRangeNumber } from '../multiplicationGame/utils'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import styles from '../gameConfiguration/Gameconfiguration.module.scss'

@@ -1,54 +1,57 @@
+@use "src/_variables";
 .container {
-    height: 100%;
-    width: 100%;
+    @include variables.full-screen;
+    @include variables.main-bg;
+    @include variables.flex-start;
     overflow: hidden;
-    display: flex;
-    background-image: url("../../../public/images/mainBg.png");
-    background-size: 80%;
-    justify-content: start;
-    align-items: center;
     flex-direction: column;
     & .content {
-        display: flex;
-        justify-content: start;
-        align-items: center;
+        @include variables.flex-start;
         flex-direction: column;
         margin-top: 50px;
         padding: 80px;
+        background-color: rgba(0,0,0, .5);
+        outline: 4px solid black;
+        @include variables.box-shadow;
         & .numbers {
             margin: 75px 0 75px 0;
             display: inline-flex;
+            @include variables.box-shadow;
+            @include variables.border-radius;
+            & :first-child {
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+            & :last-child {
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
             & .operator {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                @include variables.flex-center;
                 color: white;
                 font-size: 25px;
                 font-weight: bold;
                 background-color: rgba(0, 0, 0, .8);
             }
             & .number {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include variables.flex-center;
                 width: clamp(100px, 140px, 200px);
                 height: clamp(50px, 65px, 75px);
-                border: 1px solid rgba(0, 0, 0, .8);
-                border-radius: 4px;
                 font-size: clamp(20px, 40px, 50px);
                 background-color: rgba(0, 0, 0, .8);
                 font-weight: bold;
-                color: white
+                color: white;
             }
         }
         & input.multiplicationInput {
+            @include variables.border-radius;
+            @include variables.box-shadow;
             background-color: rgba(0, 0, 0, .7);
             width: clamp(250px, 300px, 400px);
             color: ghostwhite;
             height: 50px;
             border: none;
-            border-bottom: 2px dashed orangered;
-            border-radius: 11px;
+            border-bottom: 3px dashed orangered;
             font-size: 35px;
             font-weight: 700;
             letter-spacing: 1px;

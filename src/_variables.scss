@@ -1,0 +1,26 @@
+@mixin main-bg {
+  background-image: url("../public/images/mainBg.png");
+  background-size: 80%;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin full-screen {
+  height: 100%;
+  width: 100%;
+}
+@mixin box-shadow {
+  box-shadow: 0 0 62px 0 rgba(255,255,255,.8);
+}
+@mixin border-radius {
+  border-radius: 8px;
+}

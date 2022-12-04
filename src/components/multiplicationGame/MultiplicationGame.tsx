@@ -5,7 +5,7 @@ import { actionTypes, selectors } from '../../redux/multiplication'
 import { getRandomRangeNumber, exitCheck } from './utils'
 import styles from './multiplication.module.scss'
 
-const Game = (): JSX.Element => {
+const MultiplicationGame = (): JSX.Element => {
   // const gameStart = useSelector(selectors.getGameStart)
   const navigate = useNavigate()
   const answer = useSelector(selectors.getAnswer)
@@ -56,6 +56,8 @@ const Game = (): JSX.Element => {
     if (exitCheck()) {
       dispatch({ type: actionTypes.SET_START })
       return navigate('/')
+    } else {
+      inputRef.current?.focus()
     }
   }
   const handleEnterSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -94,4 +96,4 @@ const Game = (): JSX.Element => {
   )
 }
 
-export default Game
+export default MultiplicationGame

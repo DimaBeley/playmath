@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 
-export const About: React.FC = () => {
+const About: React.FC = () => {
   const navigate = useNavigate()
   const AboutRef = useRef<HTMLDivElement>(null)
   const TextRef = useRef<HTMLDivElement>(null)
@@ -33,12 +33,7 @@ export const About: React.FC = () => {
         <h1>About</h1>
       </div>
       <div ref={TextRef}>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          possimus doloribus error cumque autem asperiores, ullam deserunt quid
-          omnis doloremque itaque eius eaque sint facilis unde tenet cisgendered
-          aliquam soluta?
-        </p>
+        <p>This game created for fun and brain relaxing.</p>
       </div>
       <button
         ref={ButtonRef}
@@ -52,3 +47,5 @@ export const About: React.FC = () => {
     </Fragment>
   )
 }
+
+export default About
