@@ -63,31 +63,33 @@ const Game = (): JSX.Element => {
   }
   return (
     <div className={styles.container}>
-      <div className={styles.numbers}>
-        <div className={styles.number}>{randomNumbers.firstNumber}</div>
-        <span className={styles.operator}>X</span>
-        <div className={styles.number}>{randomNumbers.secondNumber}</div>
+      <div className={styles.content}>
+        <div className={styles.numbers}>
+          <div className={styles.number}>{randomNumbers.firstNumber}</div>
+          <span className={styles.operator}>X</span>
+          <div className={styles.number}>{randomNumbers.secondNumber}</div>
+        </div>
+        <input
+          ref={inputRef}
+          autoFocus={true}
+          type="text"
+          value={answer}
+          onChange={onChangeHandler}
+          className={styles.multiplicationInput}
+          onKeyDown={handleEnterSubmit}
+          maxLength={9}
+        />
+        <button type="submit" onClick={() => checkAnswerHandler()}>
+          <span>check answer</span>
+        </button>
+        <button
+          type="button"
+          className={'right'}
+          onClick={() => exitButtonHandler()}
+        >
+          <span>exit to menu</span>
+        </button>
       </div>
-      <input
-        ref={inputRef}
-        autoFocus={true}
-        type="text"
-        value={answer}
-        onChange={onChangeHandler}
-        className={styles.multiplicationInput}
-        onKeyDown={handleEnterSubmit}
-        maxLength={9}
-      />
-      <button type="submit" onClick={() => checkAnswerHandler()}>
-        <span>check answer</span>
-      </button>
-      <button
-        type="button"
-        className={'right'}
-        onClick={() => exitButtonHandler()}
-      >
-        <span>exit to menu</span>
-      </button>
     </div>
   )
 }

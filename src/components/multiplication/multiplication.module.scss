@@ -3,54 +3,62 @@
     width: 100%;
     overflow: hidden;
     display: flex;
+    background-image: url("../../../public/images/mainBg.png");
+    background-size: 80%;
     justify-content: start;
     align-items: center;
     flex-direction: column;
-    background-image: url("../../../public/images/mainBg.png");
-    background-size: 80%;
-    & .numbers {
-        display: inline-flex;
-        margin: 150px 0 75px 0;
-        & .operator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 25px;
-            font-weight: bold;
-            background-color: rgba(0, 0, 0, .8);
+    & .content {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 80px;
+        & .numbers {
+            margin: 75px 0 75px 0;
+            display: inline-flex;
+            & .operator {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 25px;
+                font-weight: bold;
+                background-color: rgba(0, 0, 0, .8);
+            }
+            & .number {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: clamp(100px, 140px, 200px);
+                height: clamp(50px, 65px, 75px);
+                border: 1px solid rgba(0, 0, 0, .8);
+                border-radius: 4px;
+                font-size: clamp(20px, 40px, 50px);
+                background-color: rgba(0, 0, 0, .8);
+                font-weight: bold;
+                color: white
+            }
         }
-        & .number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: clamp(100px, 140px, 200px);
-            height: clamp(50px, 65px, 75px);
-            border: 1px solid rgba(0, 0, 0, .8);
-            border-radius: 4px;
-            font-size: clamp(20px, 40px, 50px);
-            background-color: rgba(0, 0, 0, .8);
-            font-weight: bold;
-            color: white
-        }
-    }
-    & input.multiplicationInput {
-        background-color: rgba(0, 0, 0, .7);
-        width: clamp(250px, 300px, 400px);
-        color: ghostwhite;
-        height: 50px;
-        border: none;
-        border-bottom: 2px dashed orangered;
-        border-radius: 11px;
-        font-size: 35px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-align: center;
-        transition: border-color .4s;
-        margin-bottom: 40px;
-        &:focus-visible, :focus, :active {
-            outline: none;
-            border-bottom: 2px dashed black;
+        & input.multiplicationInput {
+            background-color: rgba(0, 0, 0, .7);
+            width: clamp(250px, 300px, 400px);
+            color: ghostwhite;
+            height: 50px;
+            border: none;
+            border-bottom: 2px dashed orangered;
+            border-radius: 11px;
+            font-size: 35px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: border-color .4s;
+            margin-bottom: 40px;
+            &:focus-visible, :focus, :active {
+                outline: none;
+                border-bottom: 2px dashed black;
+            }
         }
     }
 }
