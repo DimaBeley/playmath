@@ -11,23 +11,21 @@ const MultiplicationGame = (): JSX.Element => {
   const answer = useSelector(selectors.getAnswer)
   const randomNumbers = useSelector(selectors.getRandomNumbers)
   const getCheckAnswer = useSelector(selectors.getCheckAnswer)
+  const answersCount = useSelector(selectors.getAnswersCount)
   const inputRef = useRef<HTMLInputElement>(null)
   const dispatch = useDispatch()
   // const GameMode = useSelector(selectors.getGameMode)
   useEffect(() => {
     inputRef.current?.focus()
     return () => {
-      dispatch({
-        type: actionTypes.UPDATE_ANSWER,
-        payload: '',
-      })
+      dispatch({ type: actionTypes.END_GAME })
     }
   }, [])
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
       firstNumber: getRandomRangeNumber(2, 9),
-      secondNumber: getRandomRangeNumber(10, 99),
+      secondNumber: getRandomRangeNumber(2, 9),
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
@@ -46,15 +44,16 @@ const MultiplicationGame = (): JSX.Element => {
   }
   const checkAnswerHandler = () => {
     if (getCheckAnswer) {
-      alert('well done')
+      dispatch({ type: actionTypes.SET_GOOD_ANSWER_COUNT })
       return next()
     } else {
+      dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
       return alert('try again :(')
     }
   }
   const exitButtonHandler = () => {
     if (exitCheck()) {
-      dispatch({ type: actionTypes.SET_START })
+      dispatch({ type: actionTypes.END_GAME })
       return navigate('/')
     } else {
       inputRef.current?.focus()
@@ -66,6 +65,14 @@ const MultiplicationGame = (): JSX.Element => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
+        <div className={styles.answersCountBlock}>
+          <div className={`${styles.answersCount} ${styles.good}`}>
+            {answersCount.goodAnswer}
+          </div>
+          <div className={`${styles.answersCount} ${styles.bad}`}>
+            {answersCount.badAnswer}
+          </div>
+        </div>
         <div className={styles.numbers}>
           <div className={styles.number}>{randomNumbers.firstNumber}</div>
           <span className={styles.operator}>X</span>

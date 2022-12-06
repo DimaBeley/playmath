@@ -14,3 +14,5 @@ export const getCheckAnswer = (state: MultiplicationGameState) => {
   const { answer } = state.MultiplicationState
   return Number(answer) === getMultiplication(firstNumber, secondNumber)
 }
+export const getAnswersCount = (state: MultiplicationGameState) =>
+  state.MultiplicationState.answersCount
