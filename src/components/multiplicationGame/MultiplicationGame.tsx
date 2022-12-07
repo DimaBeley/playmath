@@ -6,7 +6,7 @@ import { getRandomRangeNumber, exitCheck } from './utils'
 import styles from './multiplication.module.scss'
 
 const MultiplicationGame = (): JSX.Element => {
-  // const gameStart = useSelector(selectors.getGameStart)
+  const gameStart = useSelector(selectors.getGameStart)
   const navigate = useNavigate()
   const answer = useSelector(selectors.getAnswer)
   const randomNumbers = useSelector(selectors.getRandomNumbers)
@@ -16,6 +16,7 @@ const MultiplicationGame = (): JSX.Element => {
   const dispatch = useDispatch()
   // const GameMode = useSelector(selectors.getGameMode)
   useEffect(() => {
+    if (!gameStart) return navigate('/gameConfiguration')
     inputRef.current?.focus()
     return () => {
       dispatch({ type: actionTypes.END_GAME })
@@ -43,13 +44,16 @@ const MultiplicationGame = (): JSX.Element => {
     }
   }
   const checkAnswerHandler = () => {
-    if (getCheckAnswer) {
-      dispatch({ type: actionTypes.SET_GOOD_ANSWER_COUNT })
-      return next()
-    } else {
-      dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
-      return alert('try again :(')
+    if (getCheckAnswer !== undefined) {
+      if (getCheckAnswer) {
+        dispatch({ type: actionTypes.SET_GOOD_ANSWER_COUNT })
+        return next()
+      } else {
+        dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
+        return alert('try again :(')
+      }
     }
+    return
   }
   const exitButtonHandler = () => {
     if (exitCheck()) {

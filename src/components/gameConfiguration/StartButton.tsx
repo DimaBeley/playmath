@@ -8,7 +8,10 @@ const StartButton: React.FC = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const startButtonHandler = () => {
-    dispatch({ type: actionTypes.SET_START })
+    dispatch({
+      type: actionTypes.SET_START_GAME,
+      payload: true,
+    })
     dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
       payload: {

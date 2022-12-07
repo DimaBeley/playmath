@@ -1,18 +1,19 @@
 import * as actionTypes from './actionTypes'
 
-interface SetRandomNumbersAction {
+interface SetRandomNumbers {
   type: typeof actionTypes.SET_RANDOM_NUMBERS
   payload: {
     firstNumber: number
     secondNumber: number
   }
 }
-interface UpdateAnswerAction {
+interface UpdateAnswer {
   type: typeof actionTypes.UPDATE_ANSWER
   payload: number | string
 }
-interface SetStartAction {
-  type: typeof actionTypes.SET_START
+interface SetStartGame {
+  type: typeof actionTypes.SET_START_GAME
+  payload: boolean
 }
 interface SetGameConfiguration {
   type: typeof actionTypes.SET_GAME_CONFIGURATION
@@ -28,9 +29,9 @@ interface EndGame {
   type: typeof actionTypes.END_GAME
 }
 export type MultiplicationActionTypes =
-  | SetRandomNumbersAction
-  | UpdateAnswerAction
-  | SetStartAction
+  | SetRandomNumbers
+  | UpdateAnswer
+  | SetStartGame
   | SetGameConfiguration
   | SetGoodAnswerCount
   | SetBadAnswerCount
@@ -48,7 +49,7 @@ export interface MultiplicationGameState {
       secondNumber: number
     }
     answer: number
-    startGame: boolean
+    gameStart: boolean
     answersCount: {
       goodAnswer: number
       badAnswer: number

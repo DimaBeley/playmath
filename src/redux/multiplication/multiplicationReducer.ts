@@ -13,8 +13,7 @@ const initialState = {
     secondNumber: 0,
   },
   answer: '',
-  startGame: false,
-  checkAnswer: false,
+  gameStart: false,
   answersCount: {
     goodAnswer: 0,
     badAnswer: 0,
@@ -31,8 +30,8 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
           secondNumber: action.payload.secondNumber,
         },
       }
-    case actionTypes.SET_START:
-      return { ...state, startGame: !state.startGame }
+    case actionTypes.SET_START_GAME:
+      return { ...state, gameStart: action.payload }
     case actionTypes.UPDATE_ANSWER:
       return { ...state, answer: action.payload }
     case actionTypes.SET_GOOD_ANSWER_COUNT:
@@ -53,7 +52,6 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
       }
     case actionTypes.END_GAME:
       return initialState
-
     default:
       return state
   }
