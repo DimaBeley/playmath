@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { actionTypes, selectors } from '../../redux/multiplication'
-import { getRandomRangeNumber, exitCheck } from './utils'
+import { getRandomRangeNumber, exitCheck, answerAnimation } from './utils'
 import styles from './multiplication.module.scss'
 
 const MultiplicationGame = (): JSX.Element => {
@@ -13,6 +13,7 @@ const MultiplicationGame = (): JSX.Element => {
   const getCheckAnswer = useSelector(selectors.getCheckAnswer)
   const answersCount = useSelector(selectors.getAnswersCount)
   const inputRef = useRef<HTMLInputElement>(null)
+  const contentBlockRef = useRef<HTMLDivElement>(null)
   const dispatch = useDispatch()
   // const GameMode = useSelector(selectors.getGameMode)
   useEffect(() => {
@@ -37,20 +38,22 @@ const MultiplicationGame = (): JSX.Element => {
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/\D/g, '')
     if (value || value === '') {
-      dispatch({
+      return dispatch({
         type: actionTypes.UPDATE_ANSWER,
         payload: value,
       })
     }
+    return
   }
   const checkAnswerHandler = () => {
     if (getCheckAnswer !== undefined) {
       if (getCheckAnswer) {
+        answerAnimation(contentBlockRef?.current, 'lawngreen')
         dispatch({ type: actionTypes.SET_GOOD_ANSWER_COUNT })
         return next()
       } else {
-        dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
-        return alert('try again :(')
+        answerAnimation(contentBlockRef?.current, 'red')
+        return dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
       }
     }
     return
@@ -60,15 +63,15 @@ const MultiplicationGame = (): JSX.Element => {
       dispatch({ type: actionTypes.END_GAME })
       return navigate('/')
     } else {
-      inputRef.current?.focus()
+      return inputRef.current?.focus()
     }
   }
   const handleEnterSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') checkAnswerHandler()
+    if (event.key === 'Enter') return checkAnswerHandler()
   }
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentBlockRef}>
         <div className={styles.answersCountBlock}>
           <div className={`${styles.answersCount} ${styles.good}`}>
             {answersCount.goodAnswer}
