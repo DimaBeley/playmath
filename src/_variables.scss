@@ -24,3 +24,21 @@
 @mixin border-radius {
   border-radius: 8px;
 }
+
+@mixin container {
+  @include full-screen;
+  @include main-bg;
+  @include flex-start;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+@mixin content {
+  @include flex-start;
+  @include box-shadow;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 0 80px 80px 80px;
+  background-color: rgba(0,0,0, .5);
+  outline: 4px solid black;
+}

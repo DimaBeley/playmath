@@ -3,7 +3,7 @@ import { actionTypes } from '../../redux/multiplication'
 import { getRandomRangeNumber } from '../multiplicationGame/utils'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import styles from '../gameConfiguration/Gameconfiguration.module.scss'
+import styles from './GameConfiguration.module.scss'
 const StartButton: React.FC = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()

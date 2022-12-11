@@ -1,0 +1,24 @@
+{
+  "levels": {
+    "kid": {
+      "firstNumberRange": [2, 10],
+      "secondNumberRange": [2, 10]
+    },
+    "ease": {
+      "firstNumberRange": [2, 10],
+      "secondNumberRange": [10, 100]
+    },
+    "medium": {
+      "firstNumberRange": [10, 100],
+      "secondNumberRange": [10, 100]
+    },
+    "hard": {
+      "firstNumberRange": [10, 100],
+      "secondNumberRange": [100, 1000]
+    },
+    "hardcore": {
+      "firstNumberRange": [100, 1000],
+      "secondNumberRange": [100, 1000]
+    }
+  }
+}

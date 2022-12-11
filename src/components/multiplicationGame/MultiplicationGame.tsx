@@ -26,8 +26,8 @@ const MultiplicationGame = (): JSX.Element => {
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const newRandomNumbers = {
-      firstNumber: getRandomRangeNumber(2, 9),
-      secondNumber: getRandomRangeNumber(2, 9),
+      firstNumber: getRandomRangeNumber(2, 10),
+      secondNumber: getRandomRangeNumber(2, 10),
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
@@ -50,10 +50,12 @@ const MultiplicationGame = (): JSX.Element => {
       if (getCheckAnswer) {
         answerAnimation(contentBlockRef?.current, 'lawngreen')
         dispatch({ type: actionTypes.SET_GOOD_ANSWER_COUNT })
-        return next()
+        next()
+        return inputRef.current?.focus()
       } else {
         answerAnimation(contentBlockRef?.current, 'red')
-        return dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
+        dispatch({ type: actionTypes.SET_BAD_ANSWER_COUNT })
+        return inputRef.current?.focus()
       }
     }
     return
