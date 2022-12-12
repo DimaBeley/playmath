@@ -14,6 +14,7 @@ const initialState = {
   },
   answer: '',
   gameStart: false,
+  levelDifficulty: '',
   answersCount: {
     goodAnswer: 0,
     badAnswer: 0,
@@ -52,6 +53,8 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
       }
     case actionTypes.END_GAME:
       return initialState
+    case actionTypes.SET_LEVEL_DIFFICULTY:
+      return { ...state, levelDifficulty: action.payload }
     default:
       return state
   }

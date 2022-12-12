@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { actionTypes, selectors } from '../../redux/multiplication'
-import { getRandomRangeNumber, exitCheck, answerAnimation } from './utils'
+import { answerAnimation, exitCheck, getRandomRangeNumber } from './utils'
 import styles from './multiplication.module.scss'
+import data from '../data.json'
 
 const MultiplicationGame = (): JSX.Element => {
   const gameStart = useSelector(selectors.getGameStart)
   const navigate = useNavigate()
   const answer = useSelector(selectors.getAnswer)
+  const levelDifficulty = useSelector(selectors.getLevelDifficulty)
   const randomNumbers = useSelector(selectors.getRandomNumbers)
   const getCheckAnswer = useSelector(selectors.getCheckAnswer)
   const answersCount = useSelector(selectors.getAnswersCount)
@@ -25,9 +27,17 @@ const MultiplicationGame = (): JSX.Element => {
   }, [])
   const next = () => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
+    const { firstNumberRange, secondNumberRange }: any =
+      data.levels[levelDifficulty as keyof typeof data.levels]
     const newRandomNumbers = {
-      firstNumber: getRandomRangeNumber(2, 10),
-      secondNumber: getRandomRangeNumber(2, 10),
+      firstNumber: getRandomRangeNumber(
+        firstNumberRange[0],
+        firstNumberRange[1]
+      ),
+      secondNumber: getRandomRangeNumber(
+        secondNumberRange[0],
+        secondNumberRange[1]
+      ),
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,

@@ -28,6 +28,10 @@ interface SetBadAnswerCount {
 interface EndGame {
   type: typeof actionTypes.END_GAME
 }
+interface SetLevelDifficulty {
+  type: typeof actionTypes.SET_LEVEL_DIFFICULTY
+  payload: string
+}
 export type MultiplicationActionTypes =
   | SetRandomNumbers
   | UpdateAnswer
@@ -36,6 +40,7 @@ export type MultiplicationActionTypes =
   | SetGoodAnswerCount
   | SetBadAnswerCount
   | EndGame
+  | SetLevelDifficulty
 
 export interface MultiplicationGameState {
   MultiplicationState: {
@@ -50,6 +55,7 @@ export interface MultiplicationGameState {
     }
     answer: number
     gameStart: boolean
+    levelDifficulty: string
     answersCount: {
       goodAnswer: number
       badAnswer: number

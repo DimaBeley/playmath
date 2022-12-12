@@ -17,3 +17,7 @@ export const getCheckAnswer = (state: MultiplicationGameState) => {
 }
 export const getAnswersCount = (state: MultiplicationGameState) =>
   state.MultiplicationState.answersCount
+
+export const getLevelDifficulty = (state: MultiplicationGameState) => {
+  return state.MultiplicationState.levelDifficulty
+}
