@@ -1,6 +1,8 @@
 import StartButton from './StartButton'
 import styles from './GameConfiguration.module.scss'
 import { GameDifficultySelection } from './GameDifficultySelection'
+import { GoBackButton } from '../about/GoBackButton'
+import React from 'react'
 
 const GameConfiguration = (): JSX.Element => {
   return (
@@ -8,6 +10,7 @@ const GameConfiguration = (): JSX.Element => {
       <div className={styles.content}>
         <GameDifficultySelection />
         <StartButton />
+        <GoBackButton />
       </div>
     </div>
   )

@@ -18,13 +18,13 @@
             }
             & .good {
                 outline: 4px solid lawngreen;
-                border-radius: 8px;
-                background-color: rgba(0, 0, 0, .8);
+                @include variables.border-radius;
+                @include variables.background-color;
             }
             & .bad {
                 outline: 4px solid red;
-                border-radius: 8px;
-                background-color: rgba(0, 0, 0, .8);
+                @include variables.border-radius;
+                @include variables.background-color;
             }
         }
         & .numbers {
@@ -45,14 +45,14 @@
                 color: white;
                 font-size: 25px;
                 font-weight: bold;
-                background-color: rgba(0, 0, 0, .8);
+                @include variables.background-color;
             }
             & .number {
                 @include variables.flex-center;
                 width: clamp(100px, 140px, 200px);
                 height: clamp(50px, 65px, 75px);
                 font-size: clamp(20px, 40px, 50px);
-                background-color: rgba(0, 0, 0, .8);
+                @include variables.background-color;
                 font-weight: bold;
                 color: white;
             }
@@ -60,7 +60,7 @@
         & input.multiplicationInput {
             @include variables.border-radius;
             @include variables.box-shadow;
-            background-color: rgba(0, 0, 0, .7);
+            @include variables.background-color;
             width: clamp(250px, 300px, 400px);
             color: ghostwhite;
             height: 50px;

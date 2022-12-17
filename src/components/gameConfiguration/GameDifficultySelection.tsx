@@ -2,6 +2,7 @@ import data from '../data.json'
 import React, { useEffect } from 'react'
 import { actionTypes } from '../../redux/multiplication'
 import { useDispatch } from 'react-redux'
+import style from './GameConfiguration.module.scss'
 
 export const GameDifficultySelection = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -28,8 +29,16 @@ export const GameDifficultySelection = (): JSX.Element => {
     })
   }
   return (
-    <select onChange={onSelectChange} defaultValue={defaultSelectedValue}>
-      {LevelOptionsItems}
-    </select>
+    <>
+      <label htmlFor="select">Select level</label>
+      <select
+        onChange={onSelectChange}
+        defaultValue={defaultSelectedValue}
+        className={style.levelInput}
+        name={'select'}
+      >
+        {LevelOptionsItems}
+      </select>
+    </>
   )
 }

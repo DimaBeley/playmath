@@ -8,10 +8,10 @@ const Home: React.FC = () => (
       <nav className={styles.navigation}>
         <ul className={styles.navList}>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/gameConfiguration">Game!</NavLink>
           </li>
           <li>
-            <NavLink to="/gameConfiguration">Game!</NavLink>
+            <NavLink to="/about">About</NavLink>
           </li>
         </ul>
       </nav>

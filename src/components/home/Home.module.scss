@@ -6,12 +6,12 @@
   overflow: hidden;
   flex-direction: column;
   & .content {
-    //@include variables.flex-start;
+    @include variables.background-color;
+    @include variables.box-shadow;
     margin-top: 50px;
     padding: 80px;
     outline: 4px solid black;
-    background-color: rgba(0,0,0, .6);
-    width: clamp(150px, 200px, 300px);
+    width: 300px;
     & * {
       color: white;
       font-size: 26px;
