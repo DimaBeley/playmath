@@ -58,12 +58,8 @@
             }
         }
         & input.multiplicationInput {
-            @include variables.border-radius;
-            @include variables.box-shadow;
-            @include variables.background-color;
-            width: clamp(250px, 300px, 400px);
+            @include variables.box-regular;
             color: ghostwhite;
-            height: 50px;
             border: none;
             border-bottom: 3px dashed orangered;
             font-size: 35px;
@@ -76,6 +72,12 @@
                 outline: none;
                 border-bottom: 2px dashed black;
             }
+        }
+        & .exitButton {
+            @include variables.box-regular;
+        }
+        & .checkAnswerButton {
+            @include variables.box-regular;
         }
     }
 }

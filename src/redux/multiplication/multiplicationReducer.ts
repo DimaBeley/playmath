@@ -14,7 +14,7 @@ const initialState = {
   },
   answer: '',
   gameStart: false,
-  levelDifficulty: '',
+  levelDifficulty: 'KID',
   answersCount: {
     goodAnswer: 0,
     badAnswer: 0,

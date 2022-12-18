@@ -8,7 +8,6 @@ export const Navbar: React.FC = () => (
       <NavLink to="/">
         <span className={styles.logo}>Play Math Make Fun</span>
       </NavLink>
-      <span className={styles.settings}>Settings?</span>
     </div>
   </>
 )

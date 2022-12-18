@@ -107,12 +107,16 @@ const MultiplicationGame = (): JSX.Element => {
           onKeyDown={handleEnterSubmit}
           maxLength={9}
         />
-        <button type="submit" onClick={() => checkAnswerHandler()}>
+        <button
+          type="submit"
+          onClick={() => checkAnswerHandler()}
+          className={styles.checkAnswerButton}
+        >
           <span>check answer</span>
         </button>
         <button
           type="button"
-          className={'right'}
+          className={styles.exitButton}
           onClick={() => exitButtonHandler()}
         >
           <span>exit to menu</span>

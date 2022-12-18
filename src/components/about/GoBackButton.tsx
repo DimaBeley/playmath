@@ -18,9 +18,9 @@ export const GoBackButton: React.FC = () => {
   return (
     <button
       type="button"
-      className={styles.goBackButton}
       onClick={() => navigate(-1)}
       ref={ButtonRef}
+      className={styles.goBackButton}
     >
       Go back
     </button>

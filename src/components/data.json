@@ -1,24 +1,29 @@
 {
   "levels": {
-    "kid": {
+    "KID": {
       "firstNumberRange": [2, 10],
-      "secondNumberRange": [2, 10]
+      "secondNumberRange": [2, 10],
+      "example": "( 2 * 2 )"
     },
-    "ease": {
+    "EASE": {
       "firstNumberRange": [2, 10],
-      "secondNumberRange": [10, 100]
+      "secondNumberRange": [10, 100],
+      "example": "( 2 * 12 )"
     },
-    "medium": {
+    "MEDIUM": {
       "firstNumberRange": [10, 100],
-      "secondNumberRange": [10, 100]
+      "secondNumberRange": [10, 100],
+      "example": "( 12 * 12 )"
     },
-    "hard": {
+    "HARD": {
       "firstNumberRange": [10, 100],
-      "secondNumberRange": [100, 1000]
+      "secondNumberRange": [100, 1000],
+      "example": "( 12 * 123 )"
     },
-    "hardcore": {
+    "HARDCORE": {
       "firstNumberRange": [100, 1000],
-      "secondNumberRange": [100, 1000]
+      "secondNumberRange": [100, 1000],
+      "example": "( 123 * 123 )"
     }
   }
 }

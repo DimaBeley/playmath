@@ -1,25 +1,23 @@
 import data from '../data.json'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { actionTypes } from '../../redux/multiplication'
-import { useDispatch } from 'react-redux'
-import style from './GameConfiguration.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import styles from './GameConfiguration.module.scss'
+import { selectors } from '../../redux/multiplication/'
 
 export const GameDifficultySelection = (): JSX.Element => {
   const dispatch = useDispatch()
+  const level = useSelector(selectors.getLevelDifficulty)
   const levelNamesArray = Object.keys(data.levels)
   const defaultSelectedValue = levelNamesArray[0]
-  useEffect(() => {
-    dispatch({
-      type: actionTypes.SET_LEVEL_DIFFICULTY,
-      payload: defaultSelectedValue,
-    })
-  }, [])
   const LevelOptionsItems: JSX.Element[] = levelNamesArray.map(
-    (name: string) => (
-      <option key={name} value={name}>
-        {name}
-      </option>
-    )
+    (name: string) => {
+      return (
+        <option key={name} value={name} className={styles.option}>
+          {name}
+        </option>
+      )
+    }
   )
   const onSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     console.log(event.target.value, 'selected')
@@ -30,12 +28,13 @@ export const GameDifficultySelection = (): JSX.Element => {
   }
   return (
     <>
-      <label htmlFor="select">Select level</label>
+      <label className={styles.selectLabel}>Select level</label>
       <select
         onChange={onSelectChange}
         defaultValue={defaultSelectedValue}
-        className={style.levelInput}
+        className={styles.levelInputSelect}
         name={'select'}
+        value={level}
       >
         {LevelOptionsItems}
       </select>
