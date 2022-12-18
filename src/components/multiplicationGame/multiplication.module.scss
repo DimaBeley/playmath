@@ -28,7 +28,7 @@
             }
         }
         & .numbers {
-            margin: 75px 0 75px 0;
+            margin: 75px 0 45px 0;
             display: inline-flex;
             @include variables.box-shadow;
             @include variables.border-radius;
@@ -67,7 +67,7 @@
             letter-spacing: 1px;
             text-align: center;
             transition: border-color .4s;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             &:focus-visible, :focus, :active {
                 outline: none;
                 border-bottom: 2px dashed black;
@@ -78,6 +78,10 @@
         }
         & .checkAnswerButton {
             @include variables.box-regular;
+        }
+        & .pressEnterTip {
+            @include variables.tip-regular;
+            margin: 0;
         }
     }
 }

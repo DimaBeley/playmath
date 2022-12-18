@@ -11,20 +11,16 @@
       }
     }
     & .selectLabel {
-      color: white;
-      font-size: 20px;
-      @include variables.background-color;
-      @include variables.border-radius;
-      box-shadow: 0 1px 4px 2px rgb(0 0 0);
-      padding: 7px;
+      //color: white;
+      //font-size: 20px;
+      //@include variables.background-color;
+      //@include variables.border-radius;
+      //box-shadow: 0 1px 4px 2px rgb(0 0 0);
+      //padding: 7px;
+      @include variables.tip-regular
     }
     & .example {
-      color: white;
-      font-size: 20px;
-      @include variables.background-color;
-      @include variables.border-radius;
-      box-shadow: 0 1px 14px 2px rgb(0 0 0);
-      padding: 2px;
+      @include variables.tip-regular
     }
     & .startButton {
       @include variables.box-regular;

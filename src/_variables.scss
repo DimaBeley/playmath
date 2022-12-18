@@ -58,3 +58,12 @@
   color: white;
   text-transform: uppercase;
 }
+
+@mixin tip-regular {
+  color: white;
+  @include background-color;
+  @include border-radius;
+  font-size: 20px;
+  box-shadow: 0 1px 14px 2px rgb(0 0 0);
+  padding: 2px;
+}

@@ -107,6 +107,7 @@ const MultiplicationGame = (): JSX.Element => {
           onKeyDown={handleEnterSubmit}
           maxLength={9}
         />
+        <p className={styles.pressEnterTip}>Press Enter to check</p>
         <button
           type="submit"
           onClick={() => checkAnswerHandler()}
