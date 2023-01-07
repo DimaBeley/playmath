@@ -4,6 +4,7 @@
     & .content {
         @include variables.content;
         & .answersCountBlock {
+            @include variables.prevent-select;
             @include variables.flex-start;
             color: white;
             font-size: 38px;
@@ -32,6 +33,7 @@
             display: inline-flex;
             @include variables.box-shadow;
             @include variables.border-radius;
+            @include variables.prevent-select;
             & :first-child {
                 border-top-left-radius: 8px;
                 border-bottom-left-radius: 8px;
@@ -42,10 +44,11 @@
             }
             & .operator {
                 @include variables.flex-center;
+                @include variables.prevent-select;
+                @include variables.background-color;
                 color: white;
                 font-size: 25px;
                 font-weight: bold;
-                @include variables.background-color;
             }
             & .number {
                 @include variables.flex-center;
@@ -78,6 +81,9 @@
         }
         & .checkAnswerButton {
             @include variables.box-regular;
+            &:hover {
+                @include variables.button-hover;
+            }
         }
         & .pressEnterTip {
             @include variables.tip-regular;

@@ -4,20 +4,14 @@
   & .content {
     @include variables.content;
     & .levelInputSelect {
-      text-align: center;
       @include variables.box-regular;
+      text-align: center;
       &:hover {
-        cursor: pointer;
+        @include variables.button-hover;
       }
     }
     & .selectLabel {
-      //color: white;
-      //font-size: 20px;
-      //@include variables.background-color;
-      //@include variables.border-radius;
-      //box-shadow: 0 1px 4px 2px rgb(0 0 0);
-      //padding: 7px;
-      @include variables.tip-regular
+      @include variables.tip-regular;
     }
     & .example {
       @include variables.tip-regular
@@ -25,7 +19,7 @@
     & .startButton {
       @include variables.box-regular;
       &:hover {
-        cursor: pointer;
+        @include variables.button-hover;
       }
     }
   }

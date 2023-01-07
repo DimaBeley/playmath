@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './About.module.scss'
+import styles from './GoBackButton.module.scss'
 import { gsap } from 'gsap'
+import { ButtonPropsType } from './types'
 
-export const GoBackButton: React.FC = () => {
+export const GoBackButton: React.FC<ButtonPropsType> = ({ callback, text }: any) => {
   const navigate = useNavigate()
   const ButtonRef = useRef<HTMLButtonElement>(null)
   useEffect(() => {
@@ -12,17 +13,20 @@ export const GoBackButton: React.FC = () => {
       y: 15,
       duration: 1,
       delay: 0.4,
-      color: 'white',
     })
   }, [])
+  const onClickHandler = () => {
+    if (callback) return callback()
+    return navigate('/')
+  }
   return (
     <button
       type="button"
-      onClick={() => navigate(-1)}
+      onClick={onClickHandler}
       ref={ButtonRef}
       className={styles.goBackButton}
     >
-      Go back
+      {text}
     </button>
   )
 }

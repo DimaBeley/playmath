@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import styles from './About.module.scss'
-import { GoBackButton } from './GoBackButton'
+import GoBackButton from '../goBackButton'
 
 const About: React.FC = () => {
   const AboutRef = useRef<HTMLDivElement>(null)
@@ -32,7 +32,7 @@ const About: React.FC = () => {
           <p>This game created for fun and brain relaxing.</p>
           <p>Also for kids who learning basic math.</p>
         </div>
-        <GoBackButton />
+        <GoBackButton text={'Go Back'} />
       </div>
     </div>
   )

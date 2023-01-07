@@ -2,7 +2,7 @@ import React from 'react'
 import StartButton from './StartButton'
 import styles from './GameConfiguration.module.scss'
 import { GameDifficultySelection } from './GameDifficultySelection'
-import { GoBackButton } from '../about/GoBackButton'
+import { GoBackButton } from '../goBackButton/GoBackButton'
 import data from '../data.json'
 import { useSelector } from 'react-redux'
 import { selectors } from '../../redux/multiplication'
@@ -18,7 +18,7 @@ const GameConfiguration = (): JSX.Element => {
           <span className={styles.example}>Example: {example}</span>
         </div>
         <StartButton />
-        <GoBackButton />
+        <GoBackButton text={'Go Back'}/>
       </div>
     </div>
   )

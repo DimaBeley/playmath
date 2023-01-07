@@ -5,6 +5,7 @@ import { actionTypes, selectors } from '../../redux/multiplication'
 import { answerAnimation, exitCheck, getRandomRangeNumber } from './utils'
 import styles from './multiplication.module.scss'
 import data from '../data.json'
+import GoBackButton from '../goBackButton'
 
 const MultiplicationGame = (): JSX.Element => {
   const gameStart = useSelector(selectors.getGameStart)
@@ -115,13 +116,7 @@ const MultiplicationGame = (): JSX.Element => {
         >
           <span>check answer</span>
         </button>
-        <button
-          type="button"
-          className={styles.exitButton}
-          onClick={() => exitButtonHandler()}
-        >
-          <span>exit to menu</span>
-        </button>
+        <GoBackButton callback={exitButtonHandler} text={'Exit to Menu'} />
       </div>
     </div>
   )

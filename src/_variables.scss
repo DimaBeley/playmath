@@ -60,10 +60,21 @@
 }
 
 @mixin tip-regular {
-  color: white;
   @include background-color;
   @include border-radius;
+  @include prevent-select;
+  color: white;
   font-size: 20px;
   box-shadow: 0 1px 14px 2px rgb(0 0 0);
   padding: 2px;
+}
+
+@mixin button-hover {
+  color: aqua;
+  cursor: pointer;
+}
+@mixin prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
