@@ -29,11 +29,14 @@
             }
         }
         & .numbers {
-            margin: 75px 0 45px 0;
-            display: inline-flex;
             @include variables.box-shadow;
             @include variables.border-radius;
             @include variables.prevent-select;
+            margin: 75px 0 45px 0;
+            display: inline-flex;
+            @media only screen and (max-width: 600px) {
+                margin: 10px 0 10px 0;
+            }
             & :first-child {
                 border-top-left-radius: 8px;
                 border-bottom-left-radius: 8px;
@@ -49,6 +52,7 @@
                 color: white;
                 font-size: 25px;
                 font-weight: bold;
+                width: 22px;
             }
             & .number {
                 @include variables.flex-center;

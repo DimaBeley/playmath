@@ -20,6 +20,9 @@
         position: relative;
         top: 20px;
         padding: 50px;
+        @media only screen and (max-width: 600px) {
+            display: none;
+        }
     }
     & .logo {
         flex: 1;

@@ -1,17 +1,9 @@
 @use "src/_variables";
 .container {
-  @include variables.full-screen;
-  @include variables.flex-start;
-  @include variables.main-bg;
-  overflow: hidden;
-  flex-direction: column;
+  @include variables.container;
   & .content {
-    @include variables.background-color;
-    @include variables.box-shadow;
-    margin-top: 50px;
-    padding: 80px;
-    outline: 4px solid black;
-    width: 300px;
+    @include variables.content;
+    padding-top: 30px !important;
     & * {
       color: white;
       font-size: 26px;
