@@ -32,7 +32,7 @@
   @include full-screen;
   @include main-bg;
   @include flex-start;
-  overflow: hidden;
+  overflow: auto;
   flex-direction: column;
 }
 

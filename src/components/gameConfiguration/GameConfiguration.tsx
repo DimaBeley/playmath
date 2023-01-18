@@ -18,7 +18,7 @@ const GameConfiguration = (): JSX.Element => {
           <span className={styles.example}>Example: {example}</span>
         </div>
         <StartButton />
-        <GoBackButton text={'Go Back'}/>
+        <GoBackButton text={'Go Back'} />
       </div>
     </div>
   )

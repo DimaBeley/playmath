@@ -4,7 +4,10 @@ import styles from './GoBackButton.module.scss'
 import { gsap } from 'gsap'
 import { ButtonPropsType } from './types'
 
-export const GoBackButton: React.FC<ButtonPropsType> = ({ callback, text }: any) => {
+export const GoBackButton: React.FC<ButtonPropsType> = ({
+  callback,
+  text,
+}: any) => {
   const navigate = useNavigate()
   const ButtonRef = useRef<HTMLButtonElement>(null)
   useEffect(() => {
