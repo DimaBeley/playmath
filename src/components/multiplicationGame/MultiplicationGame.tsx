@@ -107,6 +107,7 @@ const MultiplicationGame = (): JSX.Element => {
           className={styles.multiplicationInput}
           onKeyDown={handleEnterSubmit}
           maxLength={9}
+          inputMode="numeric"
         />
         <p className={styles.pressEnterTip}>Press Enter to check</p>
         <button

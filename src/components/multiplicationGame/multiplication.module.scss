@@ -75,6 +75,9 @@
             text-align: center;
             transition: border-color .4s;
             margin-bottom: 30px;
+            @media only screen and (max-width: 600px) {
+                margin-bottom: 10px!important;
+            }
             &:focus-visible, :focus, :active {
                 outline: none;
                 border-bottom: 2px dashed black;
@@ -85,6 +88,9 @@
         }
         & .checkAnswerButton {
             @include variables.box-regular;
+            @media only screen and (max-width: 600px){
+                margin: 5px auto!important;
+            }
             &:hover {
                 @include variables.button-hover;
             }
