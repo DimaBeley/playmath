@@ -1,9 +1,9 @@
 import data from '../data.json'
 import React from 'react'
-import { actionTypes } from '../../redux/multiplication'
+import { actionTypes } from '../../redux/game'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './GameConfiguration.module.scss'
-import { selectors } from '../../redux/multiplication/'
+import { selectors } from '../../redux/game/'
 
 export const GameDifficultySelection = (): JSX.Element => {
   const dispatch = useDispatch()

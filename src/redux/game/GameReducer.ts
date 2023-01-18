@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/default-param-last */
 import * as actionTypes from './actionTypes'
-import { MultiplicationActionTypes } from './types'
+import { ActionTypes } from './types'
 
 const initialState = {
   gameConfiguration: {
@@ -21,7 +21,7 @@ const initialState = {
   },
 }
 
-export default (state = initialState, action: MultiplicationActionTypes) => {
+export default (state = initialState, action: ActionTypes) => {
   switch (action.type) {
     case actionTypes.SET_RANDOM_NUMBERS:
       return {
@@ -55,6 +55,8 @@ export default (state = initialState, action: MultiplicationActionTypes) => {
       return initialState
     case actionTypes.SET_LEVEL_DIFFICULTY:
       return { ...state, levelDifficulty: action.payload }
+    case actionTypes.SET_GAME_TYPE:
+      return { ...state, gameType: action.payload }
     default:
       return state
   }

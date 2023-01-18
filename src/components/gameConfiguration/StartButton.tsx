@@ -1,5 +1,5 @@
 import React from 'react'
-import { actionTypes, selectors } from '../../redux/multiplication'
+import { actionTypes, selectors } from '../../redux/game'
 import { getRandomRangeNumber } from '../multiplicationGame/utils'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'

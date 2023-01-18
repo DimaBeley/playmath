@@ -15,10 +15,6 @@ interface SetStartGame {
   type: typeof actionTypes.SET_START_GAME
   payload: boolean
 }
-interface SetGameConfiguration {
-  type: typeof actionTypes.SET_GAME_CONFIGURATION
-  payload: boolean
-}
 interface SetGoodAnswerCount {
   type: typeof actionTypes.SET_GOOD_ANSWER_COUNT
 }
@@ -32,23 +28,22 @@ interface SetLevelDifficulty {
   type: typeof actionTypes.SET_LEVEL_DIFFICULTY
   payload: string
 }
-export type MultiplicationActionTypes =
+interface SetGameType {
+  type: typeof actionTypes.SET_GAME_TYPE
+  payload: string
+}
+export type ActionTypes =
   | SetRandomNumbers
   | UpdateAnswer
   | SetStartGame
-  | SetGameConfiguration
   | SetGoodAnswerCount
   | SetBadAnswerCount
   | EndGame
   | SetLevelDifficulty
+  | SetGameType
 
-export interface MultiplicationGameState {
-  MultiplicationState: {
-    gameConfiguration: {
-      firstNumberRange: number
-      secondNumberRange: number
-      gameType: string
-    }
+export interface GameState {
+  GameState: {
     randomNumbers: {
       firstNumber: number
       secondNumber: number
@@ -56,6 +51,7 @@ export interface MultiplicationGameState {
     answer: number
     gameStart: boolean
     levelDifficulty: string
+    gameType: string
     answersCount: {
       goodAnswer: number
       badAnswer: number

@@ -5,7 +5,7 @@ import { GameDifficultySelection } from './GameDifficultySelection'
 import { GoBackButton } from '../goBackButton/GoBackButton'
 import data from '../data.json'
 import { useSelector } from 'react-redux'
-import { selectors } from '../../redux/multiplication'
+import { selectors } from '../../redux/game'
 
 const GameConfiguration = (): JSX.Element => {
   const levelDifficulty = useSelector(selectors.getLevelDifficulty)
