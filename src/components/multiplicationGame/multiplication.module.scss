@@ -88,9 +88,6 @@
         }
         & .checkAnswerButton {
             @include variables.box-regular;
-            @media only screen and (max-width: 600px){
-                margin: 5px auto!important;
-            }
             &:hover {
                 @include variables.button-hover;
             }
