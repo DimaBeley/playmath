@@ -9,7 +9,6 @@ export const GameDifficultySelection = (): JSX.Element => {
   const dispatch = useDispatch()
   const level = useSelector(selectors.getLevelDifficulty)
   const levelNamesArray = Object.keys(data.levels)
-  // const defaultSelectedValue = levelNamesArray[0]
   const LevelOptionsItems: JSX.Element[] = levelNamesArray.map(
     (name: string) => {
       return (
