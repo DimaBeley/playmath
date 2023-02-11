@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { actionTypes, selectors } from '../../redux/game'
@@ -6,8 +6,15 @@ import { answerAnimation, exitCheck, getRandomRangeNumber } from './utils'
 import styles from './multiplication.module.scss'
 import data from '../data.json'
 import GoBackButton from '../goBackButton'
+import { PrevStateRandomNumbersType } from './types'
 
 const MultiplicationGame = (): JSX.Element => {
+  const [prevStateRandomNumbers, setPrevStateRandomNumbers] = useState<
+    PrevStateRandomNumbersType | undefined
+  >({
+    firstNumber: null,
+    secondNumber: null,
+  })
   const gameStart = useSelector(selectors.getGameStart)
   const navigate = useNavigate()
   const answer = useSelector(selectors.getAnswer)
@@ -30,15 +37,35 @@ const MultiplicationGame = (): JSX.Element => {
     dispatch({ type: actionTypes.UPDATE_ANSWER, payload: '' })
     const { firstNumberRange, secondNumberRange }: any =
       data.levels[levelDifficulty as keyof typeof data.levels] // output NumberRange: [number, number]
-    const newRandomNumbers = {
-      firstNumber: getRandomRangeNumber(
+
+    let firstRandomNumber = getRandomRangeNumber(
+      firstNumberRange[0],
+      firstNumberRange[1]
+    )
+    let secondRandomNumber = getRandomRangeNumber(
+      secondNumberRange[0],
+      secondNumberRange[1]
+    )
+    while ( // check for unique first or second number.
+      prevStateRandomNumbers?.firstNumber === firstRandomNumber &&
+      prevStateRandomNumbers?.secondNumber === secondRandomNumber
+    ) {
+      firstRandomNumber = getRandomRangeNumber(
         firstNumberRange[0],
         firstNumberRange[1]
-      ),
-      secondNumber: getRandomRangeNumber(
+      )
+      secondRandomNumber = getRandomRangeNumber(
         secondNumberRange[0],
         secondNumberRange[1]
-      ),
+      )
+    }
+    setPrevStateRandomNumbers({
+      firstNumber: firstRandomNumber,
+      secondNumber: secondRandomNumber,
+    })
+    const newRandomNumbers = {
+      firstNumber: firstRandomNumber,
+      secondNumber: secondRandomNumber,
     }
     return dispatch({
       type: actionTypes.SET_RANDOM_NUMBERS,
