@@ -2,6 +2,14 @@
 .container {
     @include variables.container;
     & .content {
+        .countDownTimer {
+            width: 60px;
+            height: 40px;
+            color: white;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+        }
         @include variables.content;
         & .answersCountBlock {
             @include variables.prevent-select;

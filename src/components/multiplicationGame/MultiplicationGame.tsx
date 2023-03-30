@@ -7,6 +7,7 @@ import styles from './multiplication.module.scss'
 import data from '../data.json'
 import GoBackButton from '../goBackButton'
 import { PrevStateRandomNumbersType } from './types'
+// import { CountdownTimer } from './CountDownTimer'
 
 const MultiplicationGame = (): JSX.Element => {
   const [prevStateRandomNumbers, setPrevStateRandomNumbers] = useState<
@@ -109,6 +110,7 @@ const MultiplicationGame = (): JSX.Element => {
   const handleEnterSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') return checkAnswerHandler()
   }
+  //<CountdownTimer />} for game on time (60 seconds now) TODO end game, show result in modal.
   return (
     <div className={styles.container}>
       <div className={styles.content} ref={contentBlockRef}>
